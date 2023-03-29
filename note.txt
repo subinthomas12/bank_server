@@ -1,0 +1,71 @@
+Server Creation 
+  -----------
+
+  1. npm init
+  2. install  express - npm i express
+
+
+steps
+-----
+
+1. import express
+2. Create app using express
+3. setting port to run the app (3000 port)
+
+
+  JWT (Json Web Token)
+    --------------
+
+    - used for user authentication
+    - jsonwebtoken - library used to generate tokens
+    - sign() - method used to generate token
+    - verify() - method used for verifying token
+
+
+       Token Verification 
+         ---------------
+
+   MiddleWares
+   ----------
+   - its a function with 3 arguments (req, res, next)
+   - have the capacity to control http requests in node 
+   
+   - Two types of MiddleWares
+
+            1. Application Specific MiddleWares - it happens before all the http methods 
+            2. Router Specific MiddleWares - can apply only to the Specific requests
+
+          - next() - method used inside MiddleWare to continue node execution
+
+    MongoDB
+      ---
+
+    1. show dbs - To see the database
+    2. use (databaseName) - To open a database
+    3. show collections - To list collections
+    4. db.(collectionName).find() - To show the datas inside a collection
+    5. db.(collectionName).findOne({}) - To show single data inside a collection  eg: db.(users).findOne({acno:1000}) - present - full data of the object
+                                                                                                                      - not present - null
+    6. db.(collectionName).insertOne({keys:values}) - To insert new data 
+    7. db.(collectionName).find({condition}) - To find datas using a particular condition 
+                                            - condition create using query selection operators
+
+                    db.users.find({balance:{gt:40000}}) - To access datas which have 40000 greater balance
+    8. db.(collectionName).deleteOne({key:values}) - To delete a data from collection - delete count=0
+    9. db.(collectionName).updateOne({oldKey:oldValue},{$set:{newKey:newValue}}) - To update 
+                                                                                   eg: db.(users).updateOne({username:anu},{$set:{username:anu v}})
+
+
+DB server integration (mdb node connection) 270117 - 3000
+      ----------------------------------------
+
+      mongoose - library used to integrate MongoDB and Server
+               - npm i mongoose
+      connect() - method used to create connection string
+
+      model() - method used to create model
+
+        steps >> 1. import mongoose
+                 2. create connection string
+                 3. model creation for collection inside db (model name is singular form of collectionName)
+
