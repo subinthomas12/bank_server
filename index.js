@@ -1,5 +1,5 @@
 // import express and store in variable
-const { request } = require("express")
+const { request, response } = require("express")
 const express = require("express")
 
 
@@ -47,18 +47,19 @@ const jwtMiddleware = (req, res, next) => {
 //register post
 app.post("/register", (req, res) => {
 
-    const result = ds.register(req.body.acno, req.body.uname, req.body.psw)
-    res.status(result.statusCode).json(result)
-
+    ds.register(req.body.acno, req.body.uname, req.body.psw).then(result => {
+        res.status(result.statusCode).json(result)
+    })
 })
 
 
 app.post("/login", (req, res) => {
 
-    const result = ds.login(req.body.acno, req.body.psw)
-    res.status(result.statusCode).json(result)
-})
+    ds.login(req.body.acno, req.body.psw).then(result => {
+        res.status(result.statusCode).json(result)
 
+    })
+})
 
 app.post("/deposit", jwtMiddleware, (req, res) => {
 

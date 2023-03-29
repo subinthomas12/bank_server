@@ -69,3 +69,9 @@ DB server integration (mdb node connection) 270117 - 3000
                  2. create connection string
                  3. model creation for collection inside db (model name is singular form of collectionName)
 
+
+Asynchronous Method Handiling In Js
+ --------------------------------
+
+  Promise - reslove then()
+          - reject  catch()
